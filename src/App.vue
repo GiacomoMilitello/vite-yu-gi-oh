@@ -1,17 +1,26 @@
 <script>
-import ExampleName from "./components/ExampleName.vue";
+import AppHeader from "./components/header/AppHeader.vue";
+import AppSearch from "./components/main/AppSearch.vue";
+import CardList from "./components/main/CardList.vue";
 
 export default {
   components: {
-    ExampleName,
+    AppHeader,
+    AppSearch,
+    CardList
   },
 };
 </script>
 
 <template>
-  <h1>Hello World</h1>
 
-  <ExampleName />
+  <AppHeader/>
+  
+  <main>
+    <AppSearch/>
+    <CardList/>
+  </main>
+  
 </template>
 
 <style lang="scss">

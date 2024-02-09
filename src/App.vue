@@ -43,7 +43,7 @@ export default {
 
   <AppHeader/>
   
-  <main class="container text-center ">
+  <main class="text-center p-5">
     <div v-if="(store.loading)" class="spinner-border" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
@@ -55,4 +55,11 @@ export default {
 
 <style lang="scss">
 @use "./styles/general.scss";
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/mixins" as *;
+
+  main{
+    background-color: $yu-color;
+  }
+
 </style>

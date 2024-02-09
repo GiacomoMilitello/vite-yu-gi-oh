@@ -5,8 +5,11 @@ export default {
 </script>
 
 <template>
-  <header>
-    <h1>Yu-Gi-Oh!</h1>
+  <header class="d-flex align-items-center gap-3 p-2 px-5">
+    <figure>
+      <img class="img-fluid" src="../../../src/img/logo.png" alt="">
+    </figure>
+    <h1 class="fs-2">Yu-Gi-Oh Api</h1>
   </header>
 </template>
 
@@ -14,8 +17,7 @@ export default {
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-// h1 {
-//   color: $font-color-second;
-//   @include main-font-start;
-// }
+  figure{
+    max-width: 125px;
+  }
 </style>

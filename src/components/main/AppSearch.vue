@@ -5,16 +5,13 @@ export default {
 </script>
 
 <template>
-    <header>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-        </select>
+    <select class="form-select w-25" aria-label="Default select example">
+        <option selected>Archetype</option>
+        <option value="1">Alien</option>
+    </select>
 
-        <!-- collegare select ad  archetype -->
-    </header>
+<!-- collegare select ad  archetype -->
+
 </template>
 
 <style lang="scss" scoped>

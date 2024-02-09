@@ -2,3 +2,6 @@
 @use "./partials/mixins" as *;
 @import "bootstrap/scss/bootstrap";
 
+figure{
+    margin: 0;
+}

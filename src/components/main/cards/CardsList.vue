@@ -15,8 +15,9 @@ export default {
 </script>
 
 <template>
-  <h1>CIAOO</h1>
-  <div class="d-flex flex-wrap border">
+  
+  <div class="d-flex flex-wrap p-4 bg-white mt-4">
+    <h5 class="text-white bg-black text-start p-2 mb-0 mx-2 w-100">Found 39 cards</h5>
     <Card
     v-for="(element, index) in store.cardsList"
     :key="index"
@@ -27,5 +28,9 @@ export default {
 <style lang="scss" scoped>
 @use "../../../styles/partials/variables" as *;
 @use "../../../styles/partials/mixins" as *;
+
+  h5{
+    font-size: 100%;
+  }
 
 </style>

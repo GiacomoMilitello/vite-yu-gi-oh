@@ -1,14 +1,41 @@
 <script>
 import AppHeader from "./components/header/AppHeader.vue";
 import AppSearch from "./components/main/AppSearch.vue";
-import CardList from "./components/main/CardList.vue";
+import CardsList from "./components/main/cards/CardsList.vue";
+
+import { store } from './store'
+import axios from 'axios'
 
 export default {
   components: {
     AppHeader,
     AppSearch,
-    CardList
+    CardsList
   },
+  data(){
+    return{
+      store
+    }
+  },
+  methods: {
+    getCards(){
+
+      store.loading = true
+
+      axios
+      .get( store.apiUrl )
+      .then( res => {
+        console.log ( res.data )
+        store.cardsList = res.data.data
+
+        store.loading = false
+
+      })
+    }
+  },
+  mounted() {
+    this.getCards()
+  }
 };
 </script>
 
@@ -16,11 +43,14 @@ export default {
 
   <AppHeader/>
   
-  <main>
+  <main class="container text-center ">
+    <div v-if="(store.loading)" class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
     <AppSearch/>
-    <CardList/>
+    <CardsList/>
   </main>
-  
+
 </template>
 
 <style lang="scss">

@@ -1,13 +1,24 @@
 <script>
+import { store } from '../../store'
 export default {
   name: "AppSearch",
+  data() {
+    return {
+      store
+    }
+  }
 };
 </script>
 
 <template>
-    <select class="form-select w-25" aria-label="Default select example">
-        <option selected>Archetype</option>
-        <option value="1">Alien</option>
+    <select
+    class="form-select w-25"
+    @change="$emit('filter')"
+    v-model="store.selectValue"
+    name="card-categories"
+    id="category-select">
+        <option selected value="all">Archetype</option>
+        <option v-for="(element, index) in store.cardsArchetype" :key="index" :value="element.archetype_name"> {{ element.archetype_name }}</option>
     </select>
 
 <!-- collegare select ad  archetype -->

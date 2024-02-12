@@ -22,15 +22,32 @@ export default {
 
       store.loading = true
 
+      store.apiUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php'
+        if (store.selectValue !== "all") {
+          store.apiUrl += `?archetype=${store.selectValue}`
+        } else {
+          store.apiUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php'
+        }
+
       axios
-      .get( store.apiUrl )
+      .get( store.apiArchetype )
       .then( res => {
         console.log ( res.data )
-        store.cardsList = res.data.data
+        store.cardsArchetype = res.data
 
-        store.loading = false
+        // store.loading = false
 
       })
+      setTimeout(() => {
+        axios
+          .get(store.apiUrl)
+          .then(res => {
+            console.log(res.data)
+            store.cardsList = res.data.data
+
+            store.loading = false
+          })
+      }, 2000)
     }
   },
   mounted() {
@@ -47,7 +64,7 @@ export default {
     <div v-if="(store.loading)" class="spinner-border" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
-    <AppSearch/>
+    <AppSearch @filter="getCards"/>
     <CardsList/>
   </main>
 
